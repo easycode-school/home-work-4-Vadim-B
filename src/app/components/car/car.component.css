@@ -1,0 +1,52 @@
+body {
+	background-color: #fbe8dd;
+	min-height: 100vh;
+	}
+
+	.container {
+		max-width: 1200px;
+		width: 100%;
+		padding-right: 15px;
+		padding-left: 15px;
+		margin-right: auto;
+		margin-left: auto;
+		overflow: hidden;
+	}
+	
+	h2 {
+		margin-top: 20px;
+	}
+
+	li {
+		list-style-type: none;
+	}
+	
+	.car_init_form {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	
+	input {
+		height: 20px;
+		display: block;
+		max-width: 500px;
+		margin-top: 15px;
+	}
+	
+	.btn {
+		margin-top: 15px;
+		padding: 10px 25px;
+		background-color: #ffc473;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+/* /car_init */
+
+.car_services {
+	margin-top: 50px;
+	font-size: 1.3em;
+}
+
