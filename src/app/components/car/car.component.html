@@ -39,15 +39,15 @@
 
 
 			<div class="controls_car_services">
-					<div class="drive_services">
-						<input type="number" name="distance_init" class="distance_init_input" placeholder="Расстояние, км *">
-						<button class="submit_drive_car btn" (click)="drive()">Поехали</button>
-						<p *ngIf="!car.fuel">Топливо закончилось.</p>
-					</div>
-					<div *ngIf="car.fuel < 10" class="fuel_services">
-						<input type="number" name="fuel_init" class="fuel_init_input" placeholder="Сколько литров?">
-						<button class="submit_init_car btn" (click)="refuel()">Заправить</button>
-					</div>
+				<form name="drive_services">
+					<input type="number" name="distance_init" class="distance_init_input" placeholder="Расстояние, км *">
+					<a class="submit_drive_car btn" (click)="drive()">Поехали</a>
+					<p *ngIf="!car.fuel">Топливо закончилось.</p>
+				</form>
+				<form *ngIf="car.fuel < 10" name="fuel_services">
+					<input type="number" name="fuel_init" class="fuel_init_input" placeholder="Сколько литров?">
+					<a class="submit_init_car btn" (click)="refuel()">Заправить</a>
+				</form>
 			</div>
 		</div>
 	</div>

@@ -35,6 +35,7 @@ body {
 	}
 	
 	.btn {
+		display: inline-block;
 		margin-top: 15px;
 		padding: 10px 25px;
 		background-color: #ffc473;
