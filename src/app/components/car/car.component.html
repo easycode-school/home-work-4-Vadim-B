@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<div class="car_init">
+			<h2>Укажите характеристики Вашего авто</h2>
+			<form action="" name="car_init_form" class="car_init_form">
+				<input type="text" name="carName_init" class="car_init_input" placeholder="Марка авто">
+				<input type="number" name="mileage_init" class="car_init_input" placeholder="Текущий пробег, км *">
+				<input type="number" name="fuelTankCapacity_init" class="car_init_input" placeholder="Объем топливного бака, л *">
+				<input type="number" name="fuel_init" class="car_init_input" placeholder="Текущее количество бензина в баке, л *">
+				<input type="number" name="fuelConsumptionRate_init" class="car_init_input" placeholder="Расход топлива на 100 км, л">
+				<input type="text" name="specifications_init" class="car_init_input" placeholder="Характеристики авто (через точку с запятой)">
+			</form>
+			<button class="submit_init_car btn" (click)="initCarServices()">Готово</button>
+		</div>
+		<!-- /car_init -->
+
+		<div *ngIf="car" class="car_services">
+			<h2>Итак, Ваше авто</h2>
+			<ul>
+				<li>Марка автомобиля: {{car.carName}}</li>
+				<li>Пробег: {{car.mileage}} км</li>
+				<li>Объем топливного бака: {{car.fuelTankCapacity}} л</li>
+				<li>Топлива в баке: {{car.fuel}} л</li>
+				<li>Расход топлива на 100 км: {{car.fuelConsumptionRate || "примерно 10"}} л</li>
+			</ul>
+			<ul *ngIf="car.specifications.length > 1">Характеристики авто:
+				<li *ngFor="let description of car.specifications">
+					- {{ description }};
+				</li>
+			</ul>
+
+
+			<div class="controls_car_services">
+				<form name="drive_services">
+					<input type="number" name="distance_init" class="distance_init_input" placeholder="Расстояние, км *">
+					<a class="submit_drive_car btn" (click)="drive()">Поехали</a>
+					<p *ngIf="!car.fuel">Топливо закончилось.</p>
+				</form>
+				<form *ngIf="car.fuel < 10" name="fuel_services">
+					<input type="number" name="fuel_init" class="fuel_init_input" placeholder="Сколько литров?">
+					<a class="submit_init_car btn" (click)="refuel()">Заправить</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
